@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A conference audited by machines, and what broke — AI For All</title>
+<meta name="description" content="Plus a workhorse model at half price, a songwriter that fits on a gaming PC, and speed you cannot buy yet.">
+<style>
+:root{--ink-dark:#12123A;--accent:#3A2FD8;--text:#1A1A22;--muted:#6B6B78;
+--tint:#F4F4F8;--bg:#FFFFFF;--ok:#1B7F5A;--warn:#B5701A;--off:#6B6B78}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+font:17px/1.65 Georgia,'Iowan Old Style','Times New Roman',serif;
+-webkit-text-size-adjust:100%}
+.wrap{max-width:40rem;margin:0 auto;padding:0 1.15rem}
+header{border-bottom:1px solid #E4E4EC}
+.bar{display:flex;align-items:center;gap:.7rem;padding:1.1rem 0}
+.bar a.home{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:var(--ink-dark)}
+.bar .name{font-weight:700;letter-spacing:.01em;color:var(--ink-dark);white-space:nowrap}
+.bar .logo{flex:0 0 auto}
+nav{margin-left:auto;font-size:.9rem;white-space:nowrap}
+nav a{color:var(--muted);text-decoration:none;margin-left:1rem}
+nav a:hover{color:var(--accent)}
+h1{font-size:1.95rem;line-height:1.2;color:var(--ink-dark);margin:2rem 0 .6rem;
+letter-spacing:-.01em}
+h2{font-size:1.25rem;line-height:1.3;color:var(--ink-dark);margin:2.4rem 0 .5rem}
+h3{font-size:1.05rem;color:var(--ink-dark);margin:1.7rem 0 .3rem}
+p{margin:.75rem 0}
+a{color:var(--accent)}
+.lede{font-size:1.12rem;color:var(--text)}
+.cta{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;
+font-family:system-ui,-apple-system,'Segoe UI',sans-serif;font-size:1rem;
+font-weight:600;padding:.75rem 1.5rem;border-radius:5px;margin:.4rem 0 .35rem}
+.cta:hover{background:#2E24B4}
+.rule{color:var(--muted);font-size:.92rem;font-style:italic;margin:.15rem 0 2rem}
+.getbox{background:var(--tint);border-radius:6px;padding:1rem 1.2rem;margin:1.6rem 0}
+.getbox ul{margin:.4rem 0;padding-left:1.1rem}
+.getbox li{margin:.35rem 0}
+/* Classes owned by make_availability.py's card render. Styled here so the
+   embedded page wears the site charter; its pill keeps its own inline colours,
+   which are the same green/orange/grey semantics. */
+.card{border:1px solid #E4E4EC;border-radius:8px;padding:1.05rem 1.15rem 1rem;margin:0 0 .9rem}
+.card h3{font-size:1.1rem;margin:0 0 .45rem;display:flex;flex-wrap:wrap;
+align-items:baseline;gap:.45rem}
+.pill{font:11px/1.25 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.05em;
+text-transform:uppercase;padding:.22em .55em;border-radius:999px}
+.what{margin:.25rem 0 .6rem}
+.cost{background:var(--tint);border-left:3px solid #D3D3E0;padding:.6rem .8rem;
+margin:.55rem 0 .7rem;font-size:.97rem}
+.short-note{font-size:.88rem;color:var(--muted);margin:-.25rem 0 1rem}
+details.ruled{margin:.1rem 0 1.6rem;font-size:.92rem}
+summary{cursor:pointer;color:var(--muted);font-size:.88rem;padding:.35rem 0;list-style:none}
+summary::-webkit-details-marker{display:none}
+.ruled ul{margin:.35rem 0 0;padding:0 0 0 .2rem;list-style:none;color:var(--muted)}
+.ruled li{padding:.28rem 0;border-top:1px dotted #E4E4EC}
+.ruled li:first-child{border-top:none}
+.ruled b{color:var(--text);font-weight:600}
+.editions{list-style:none;padding:0;margin:1rem 0}
+.editions li{border-top:1px solid #E4E4EC;padding:.9rem 0}
+.editions li:last-child{border-bottom:1px solid #E4E4EC}
+.editions .d{font:12px/1 ui-monospace,SFMono-Regular,Menlo,monospace;
+color:var(--muted);letter-spacing:.04em;display:block;margin-bottom:.25rem}
+.editions a{text-decoration:none;font-size:1.04rem}
+.editions a:hover{text-decoration:underline}
+.editions .pv{color:var(--muted);font-size:.92rem;margin:.2rem 0 0}
+.status{font:11px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.06em;
+text-transform:uppercase;padding:.3em .5em;border-radius:3px;background:var(--tint);
+color:var(--off);margin-left:.45em;white-space:nowrap;vertical-align:.12em}
+.status.available{color:var(--ok)}.status.gated{color:var(--warn)}
+.figs{margin:.6rem 0;padding:0;list-style:none}
+.figs li{font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--text);
+border-left:3px solid #D3D3E0;padding:.15rem 0 .15rem .65rem;margin:.18rem 0}
+.prov{font-size:.85rem;color:var(--muted);border-top:1px dotted #E4E4EC;
+padding-top:.4rem;margin-top:.6rem;word-break:break-word}
+.before{background:var(--tint);border-left:3px solid var(--ink-dark);
+padding:.8rem 1rem;margin:.9rem 0;font-size:.95rem}
+.out{font-size:.92rem;color:var(--muted)}.out b{color:var(--text)}
+.method{color:var(--muted);font-size:.94rem}
+hr{border:0;border-top:1px solid #E4E4EC;margin:2rem 0}
+footer{border-top:1px solid #E4E4EC;margin-top:3.5rem;padding:1.2rem 0 2.5rem;
+font-size:.85rem;color:var(--muted)}
+footer a{color:var(--muted)}
+@media(max-width:560px){body{font-size:16px}h1{font-size:1.6rem}
+.wrap{padding:0 1rem}.cta{display:block;text-align:center}
+.bar{flex-wrap:wrap;gap:.5rem;padding:.9rem 0}
+.bar .name{font-size:.98rem}
+nav{margin-left:0;width:100%;font-size:.86rem;white-space:normal}
+nav a{margin:0 1rem 0 0}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><div class="bar">
+<a class="home" href="../index.html"><svg class="logo" viewBox="0 0 64 64" width="38" height="38" role="img" aria-label="AI For All"><rect width="64" height="64" rx="5" fill="#12123A"/><rect x="5" y="5" width="54" height="54" rx="2.5" fill="none" stroke="#FFFFFF" stroke-width="1.6"/><text x="32" y="31.5" text-anchor="middle" font-family="Georgia,serif" font-size="21" font-weight="700" fill="#FFFFFF">AI</text><text x="32" y="46" text-anchor="middle" font-family="Georgia,serif" font-size="8.2" letter-spacing="1.4" fill="#FFFFFF">FOR ALL</text></svg><span class="name">AI For All</span></a>
+<nav><a href="../archive/index.html">Archive</a>
+<a href="../what-you-can-use.html">What you can use</a>
+<a href="https://ai-for-all55.beehiiv.com">Subscribe</a></nav>
+</div></div></header>
+<main class="wrap">
+<p class="rule" style="font-style:normal"><a href="index.html">← Archive</a></p><h1>A conference audited by machines, and what broke</h1><p class="method">Edition of 2026-08-14</p><p>Four things landed yesterday, and each one changes what someone can do today.</p>
+<h2>Machines audited a conference, and a quarter of it did not hold</h2>
+<p>Hugging Face ran an open challenge through July: point your own coding agent at a paper accepted to the year&#x27;s largest machine learning conference, and try to reproduce it claim by claim. The scale explains why this was worth doing at all — the conference received 23,918 submissions and accepted 6,352 papers, roughly double the previous year, a jump the post attributes partly to agents making experiments faster to run and write up. Peer review did not double alongside it, and one accepted spotlight paper carried a reviewer&#x27;s admission that he had not checked the proofs carefully. In the challenge, 1,221 people took part and launched 2,962 cloud jobs. Aggregated per paper, 51% of those examined had at least one claim independently confirmed — 1,103 papers, and 3,978 individual claims confirmed by real experiments. But 23%, or 496 papers, had at least one claim falsified or contested, and 242 papers received opposite verdicts from independent teams checking the same claim. The named failures are concrete: the paper whose proofs went unchecked has a guarantee that degrades as the problem grows; a theorem about attention holds for 224 steps and then breaks, which explains why everyone who &quot;verified&quot; it had stopped checking too early; another paper&#x27;s theory analyses one loss function while the code that produced its results computes a different one. Two arXiv corrections are in flight. The post is equally clear that some claimed falsifications were themselves wrong, including one built on comparing per-item against per-batch timings. Every logbook, verdict, artefact and agent trace was published, so the audit is itself auditable — which is the part worth borrowing. <a href="https://huggingface.co/blog/icml-2026-open-reproductions">Hugging Face</a></p>
+<h2>The workhorse model, at half price until January</h2>
+<p>Google shipped a new version of its mid-tier Flash model three weeks after the last one, aimed at coding and at software that runs on its own for minutes at a time. The introductory price is $0.75/1M input tokens and $3.75/1M output tokens, running to the end of the year; Artificial Analysis, which measures models independently and benchmarked this one ahead of release, notes the standard rate is double, at $7.50 per 1M output tokens. Diary that for January rather than budgeting on today&#x27;s number. Two findings from the independent measurement are more useful than Google&#x27;s own benchmark wall: cost per task fell 30% against the previous generation at the discounted price, and the model produces roughly 340 output tokens per second, close to 3x the output speed of the two rivals it names, which works out at 1.7 minutes per task on average. Google also pushed it into its consumer agent product for paying subscribers in over 160 countries on launch day, which is a distribution decision rather than a developer preview. This is not the smartest model available; it is the cheap fast one that got cheaper and faster, and that is the claim the independent numbers support. <a href="https://deepmind.google/blog/introducing-gemini-3-7-flash/">Google DeepMind</a> · <a href="https://artificialanalysis.ai/articles/gemini-3-7-time-frontier">Artificial Analysis</a></p>
+<h2>A songwriter that runs on a gaming PC</h2>
+<p>MiniMax published the weights of a music generation model, so anyone can download it and run it privately. Given lyrics and a written description of style, instruments and production, it returns a complete song with sung vocals of up to 5 minutes of music, in 32 khz stereo audio. Structure is explicit: the lyrics carry section tags for intro, verse, chorus, bridge and outro, and the card documents the model holding theme, rhythm and vocal identity across the full length. The hardware note is what makes this consequential — the card documents running it on 8 gb video cards by streaming the model layer by layer, and in about 22 gb with automatic offloading. That is a gaming machine, not a datacentre, and the lyrics never leave it. The limits are stated on the same page: it needs an NVIDIA card, it cannot stream output as it generates, the prompt is capped at 5,000 tokens, and the tempo, key and structure you ask for may not come back exactly. No independent evaluation of the output quality exists yet, so nothing above is a quality claim. <a href="https://huggingface.co/MiniMaxAI/MiniMax-Music3">MiniMax model card</a></p>
+<h2>Speed you cannot buy yet</h2>
+<p>Cerebras and OpenAI launched a new service tier in OpenAI&#x27;s developer interface: the same top model, running on Cerebras hardware, at a stated speed of up to 750 output tokens per second. The mechanism is physical rather than algorithmic — Cerebras packs 44 gb of sram onto a single wafer-sized chip, so the weights stay on the chip instead of being fetched from separate memory for every token generated. As a demonstration, Cerebras ran an exam of 2,500 questions through both systems, finishing in 11 hours and 11 minutes against 78 hours for a rival model, and claims comparable accuracy. Two caveats do most of the work here. Every figure is Cerebras&#x27;s, produced by Cerebras on its own hardware against a rival it configured itself, and Cerebras sells the chips; no independent measurement of this tier exists. And it is a limited preview for a selected set of customers, so the practical answer to &quot;can I use this&quot; is no, not yet. Treat the existence of the tier as the fact and the speed as a vendor claim until somebody neutral measures it. <a href="https://www.cerebras.ai/blog/accelerating-gpt-5-6-sol-ultrafast-with-openai">Cerebras</a></p>
+<h2>Signal faible</h2>
+<p>DeepSeek, whose flagship went generally available yesterday, has now published that model&#x27;s weights under a permissive licence — the day after the commercial launch. The card documents three deliberation settings and a comparison table that is DeepSeek&#x27;s own; the parameter count being quoted everywhere is not stated in the card text, so it does not appear here. Publishing a flagship&#x27;s weights within a day of selling access to it is the pattern to watch, not the table. The card is at huggingface.co/deepseek-ai/DeepSeek-V4-Pro-0813.</p>
+<p>Watch January, when the discounted price on Google&#x27;s workhorse model is scheduled to double back to its standard rate.</p>
+<p>This briefing is produced with AI. Sources are linked above.</p>
+</main>
+<footer><div class="wrap">
+<p>AI For All — a daily read on what actually shipped. Every figure is checked
+against the source it came from, and the source is linked.</p>
+<p>Produced with AI. Sources are linked on every edition.
+<a href="https://ai-for-all55.beehiiv.com">Subscribe</a></p>
+</div></footer>
+</body>
+</html>
