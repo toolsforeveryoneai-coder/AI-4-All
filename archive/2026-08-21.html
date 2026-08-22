@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Archive — AI For All</title>
-<meta name="description" content="What shipped, what it does, whether it&#x27;s worth your time. Sources linked.">
+<title>Copilot could be tricked into emptying your Gmail — AI For All</title>
+<meta name="description" content="A patched flaw shows how one link turns an AI assistant into a leak.">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <style>
 :root{--ink-dark:#12123A;--accent:#3A2FD8;--text:#1A1A22;--muted:#6B6B78;
@@ -65,7 +65,17 @@ nav a{margin:0 1rem 0 0}}
 <a href="https://ai-for-all55.beehiiv.com">Subscribe</a></nav>
 </div></div></header>
 <main class="wrap">
-<h1>Archive</h1><p class="lede">Every edition, newest first. Editions appear here the day after they go out by email.</p><ul class="editions"><li><span class="d">2026-08-21</span><a href="2026-08-21.html">Copilot could be tricked into emptying your Gmail</a><p class="pv">A patched flaw shows how one link turns an AI assistant into a leak.</p></li><li><span class="d">2026-08-20</span><a href="2026-08-20.html">Your remote, your coding tool, both got cheaper today</a><p class="pv">A free Alexa upgrade, thirty extra hours of Replit a month, and one week&#x27;s notice before ChatGPT shows ads in Europe.</p></li><li><span class="d">2026-08-19</span><a href="2026-08-19.html">A five-year migration, done in two weeks</a><p class="pv">Plus a chatbot that now treats teenagers differently, and a memory chip bill nobody asked for.</p></li><li><span class="d">2026-08-18</span><a href="2026-08-18.html">The flagship model at half price, for a month</a><p class="pv">Plus the AI reviewer that approved the flaw an AI attacker exploited.</p></li><li><span class="d">2026-08-15</span><a href="2026-08-15.html">A model small enough to keep in the office</a><p class="pv">Plus an invisible signature in Claude&#x27;s text, a new flagship inside a coding plan, and what people actually download.</p></li><li><span class="d">2026-08-14</span><a href="2026-08-14.html">A conference audited by machines, and what broke</a><p class="pv">Plus a workhorse model at half price, a songwriter that fits on a gaming PC, and speed you cannot buy yet.</p></li><li><span class="d">2026-08-13</span><a href="2026-08-13.html">Sign language reaches the phone keyboard</a><p class="pv">Plus a 2.4-trillion-parameter model anyone can download, and a price that now depends on the clock.</p></li><li><span class="d">2026-08-12</span><a href="2026-08-12.html">OpenAI is renting out a model built to write attacks</a><p class="pv">Plus: ads reach five more countries, and Meta&#x27;s newest open model fits on one desktop.</p></li></ul><p><a class="cta" href="https://ai-for-all55.beehiiv.com">Subscribe — free</a></p><p class="rule">If nothing worth using shipped, nothing goes out.</p>
+<p class="rule" style="font-style:normal"><a href="index.html">← Archive</a></p><h1>Copilot could be tricked into emptying your Gmail</h1><p class="method">Edition of 2026-08-21</p><p># AI For All
+### Friday, August 21, 2026</p>
+<p>Someone who uses Microsoft Copilot Personal with Gmail, Drive or Calendar connected no longer has to worry that clicking one ordinary looking link could let an attacker silently read and export their inbox, because Microsoft shipped the fix on August 18.</p>
+<h2>The assistant that snitched on itself</h2>
+<p>Security researchers at Varonis Threat Labs found the flaw, nicknamed CoSnitch, by doing something unusual: they argued with Copilot until it explained its own defenses in detail, then used that explanation to break them. One click on a crafted link, no confirmation dialog, no warning, and Copilot would quietly pull data from a victim&#x27;s connected Gmail, Drive, Calendar or OneDrive and ship it to an outside server.</p>
+<p>The chain had a third piece that outlasts the first two. A poisoned web page, once summarized by Copilot, could plant instructions in its permanent memory, the kind of memory that is supposed to survive across sessions. Varonis found that memory poisoning persisted even through a password change. The vulnerability now carries an official CVE identifier and a high-severity rating from the National Vulnerability Database, with Microsoft itself as the reporting authority.</p>
+<p>Varonis disclosed the bug to Microsoft privately, and the fix landed on *<em>August 18, 2026</em>*. This is the third Copilot flaw Varonis has surfaced this year, and every one followed the identical pattern: a single click on a link that looked entirely ordinary. Varonis says it found no sign anyone exploited CoSnitch before the patch went out, which is the best possible ending for a bug like this, but not a reason to treat AI assistants as immune to the same tricks that have always worked on browsers.</p>
+<p>If you connect a personal AI assistant to your email, this is the shape of risk to expect going forward: not the assistant misbehaving on its own, but an attacker using the assistant&#x27;s own permissions against you. Fewer connected apps means a smaller target. <a href="https://www.varonis.com/blog/cosnitch">Varonis</a></p>
+<h2>Weak signal</h2>
+<p>Grok has been sending some users pure gibberish since Wednesday, X AI has not explained why, and a widely covered Pew Research study now finds AI authorship signals in over a third of web pages published since ChatGPT launched, neither developed enough yet to earn its own section.</p>
+<p>Whatever gets automated next, someone will eventually find the crack in it. The interesting part is always how fast the fix follows.</p>
 </main>
 <footer><div class="wrap">
 <p>AI For All — a daily read on what actually shipped. Every figure is checked
